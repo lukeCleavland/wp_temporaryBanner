@@ -6,7 +6,7 @@ Description: Schedule info to appear the home page.
 Version: 1.0.0
 Author: Luke Cleavland
 */
-
+defined('ABSPATH') OR exit;
 function tempbanner_markup($object)
 {
 
@@ -137,6 +137,6 @@ function display_tempbanner(){
        }
        return $banner.$banner2;
     }
-    
+
 
 ?>
