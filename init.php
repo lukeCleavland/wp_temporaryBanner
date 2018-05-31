@@ -106,7 +106,9 @@ function add_tempbanner()
     global $post;
         $file = get_post_meta( $post->ID, '_wp_page_template', true );
       $filename = explode("/", $file);
+      if(isset($filename[1])){
      $filename = explode("-", $filename[1]);
+      }
     if($filename[0] == 'home'){
 add_meta_box("tempbannertext", "Temp Banner", "tempbanner_markup", "page", "normal", "high", null);
     }
@@ -117,7 +119,7 @@ add_action("add_meta_boxes", "add_tempbanner");
 
 
 function display_tempbanner(){
-
+      $banner = $banner2 = NULL;
       $today = date("Y-m-d");
       $today = strtotime($today);
       $startonday = strtotime(get_post_meta(get_the_ID(),'_tempstart', true));
